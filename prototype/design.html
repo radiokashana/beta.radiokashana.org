@@ -1,0 +1,499 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Radio Kashana</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+		<link rel="stylesheet" href="custom-initializr-2.1/css/style.css">
+
+	<script src="custom-initializr-2.1/js/libs/modernizr-2.0.6.min.js">
+	</script>
+	
+	<style type="text/css">
+		/*
+			top-bar: #D17171 to #C86767
+			bottom-bar: #AD1E1E to #950606
+			menu: #4C4848 to #352F2F
+		*/
+		body > header {
+			position: relative;
+			border-top: 16px solid #D17171;
+		}
+		#top-bar { background-color: #D17171; height: 16px; }
+		#bottom-bar { background-color: #AD1E1E; height: 28px; }
+		#logo-container
+		{
+			background-color: #FFFFFF; width: 164px; height: 206px;
+			position: absolute; left: 20px; top: -16px;
+			filter: alpha(opacity=90);
+			opacity: 0.9; z-index:1;
+		}
+		#logo { position: absolute; bottom: 1%; width: 164px; }
+		#header-banner
+		{
+			background-image: url(radiokshana_playa.png);
+			background-repeat: no-repeat;
+			background-position: center center;
+			width: 100%; height: 226px;
+			border-top: #AD1E1E solid 28px; 
+		}
+		nav a{
+			display:block;
+			color:white;
+			text-align:center;
+			text-decoration:none;
+			font-weight:bold;
+		}
+
+		nav a:hover, nav a:visited{
+			color:white;
+		}
+
+		nav a:hover{
+			text-decoration:underline;
+		}
+
+		nav
+		{
+			background: #7d7e7d; /* Old browsers */
+			background: -moz-linear-gradient(top,  #7d7e7d 0%, #0e0e0e 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* IE10+ */
+			background: linear-gradient(top,  #7d7e7d 0%,#0e0e0e 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+			bottom: 5%; left: 1%; right: 1%;
+			position: absolute;
+			text-align: center;
+		}
+		nav ul { list-style:none; display: inline-block; margin-top: 0.5%; }
+		nav li
+		{
+			float: left; padding: 0.3em 0.6em; color: white; font-size: 1.3em;
+			border-left: 1px solid #676060; border-right: 1px solid #231E1E;
+			font-family: arial; font-weight: bold; font-size: 1.1em;
+			margin-left: auto; margin-right: auto;
+		}
+		nav li:first-child { border-left: none; }
+		nav li:last-child { border-right: none; }
+	</style>
+	<style type="text/css">
+		/*
+		Used the following image slider for news:
+		http://www.deluxeblogtips.com/2010/05/image-slider-pure-css3.html
+		*/
+		#news-container {
+			text-align: center;
+			position: relative;
+		}
+		#news {
+			height: 250px;
+			overflow: hidden;
+			position: relative;
+			margin: 0;
+			padding: 0;
+		}
+		#news li {
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0px;
+			z-index: 1;
+			opacity: 0;
+
+			transition: all linear 500ms;
+			-o-transition: all linear 500ms;
+			-moz-transition: all linear 500ms;
+			-webkit-transition: all linear 500ms;
+		}
+		#news li:target {
+			left: 0;
+			z-index: 2;
+			opacity: 1;
+		}
+		#news li:first-child {
+			left: 0;
+			opacity: 1;
+		}
+		#slider {
+			position: absolute;
+			width:100%;
+			bottom: 0%;
+			z-index: 3;
+			height: 13%;
+		}
+		#slider a {
+			border-radius: 50%;
+			text-decoration: none;
+			background: white;
+			border: 1px solid black;
+			padding: 4px 7px;
+			color: #222;
+			font-size: 0.5em;
+		}
+		#slider a:hover {
+			background: #C6E4F2;
+		}
+		#slider a:active {
+			background: black;
+		}
+		#news1 {
+			background-image: url(1.png);
+			background-color: white;
+		}
+		#news2 {
+			background-image: url(2.png);
+			background-color: white;
+		}
+		#news3 {
+			background-image: url(3.png);
+			background-color: white;
+		}
+		#news4 {
+			background-image: url(4.png);
+			background-color: white;
+		}
+		#news5 {
+			background-image: url(5.png);
+			background-color: white;
+		}
+		#news article {
+			width: 28%;
+			float: right;
+			color: white;
+			font-size: 0.8em;
+			text-align: justify;
+			height: 87%;
+		}
+		/*
+		
+		Transparency only for background:
+
+		http://robertnyman.com/2010/01/11/css-background-transparency-without-affecting-child-elements-through-rgba-and-filters/
+
+		*/
+		#slider, #news article {
+			/* Fallback for web browsers that doesn't support RGBa */
+			background: rgb(53, 47, 47);
+			/* RGBa with 0.7 opacity */
+			background: rgba(53, 47, 47, 0.7);
+			/* For IE 5.5 - 7*/
+			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2534747, endColorstr=#b2534747);
+			/* For IE 8*/
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2534747, endColorstr=#b2534747)";
+			<!--[if IE]>
+			background: transparent;
+			<![endif]-->
+		}
+		#news article h2 {
+			font-size: 1.5em;
+			text-align: center;
+		}
+		#news article h2 a {
+			color: #AD1E1E;
+			font-weight: bolder;
+			text-decoration: none;
+		}
+		#news article p {
+			margin: 0px 0px;
+		}
+		.button {
+			border-radius: 0.5ex;
+			background-color: #AD1E1E;
+			color: white;
+			border: 0;
+			float: right;
+			text-decoration: none;
+			margin-right: 1px;
+			padding: 0px 5px;
+		}
+		#news-container ol {
+			list-style: none;
+		}
+	</style>
+	<style type="text/css">
+		dt { border-radius: 0px 0px 5px 5px; text-align: center; background-color: green; }
+		dt, dt + dd { border-radius: 0px 0px 5px 5px; text-align: center; background-color: yellow; }
+		#mejibo { background-color: #CD20BE; }
+		#santa-rocksalia { background-color: #F9A433; }
+		#titulares-sport { background-color: #78C82C; }
+		#sonico-jardin { background-color: #389BC9; }
+		#sonando-diario { background-color: #BC3017; }
+	</style>
+	<style type="text/css">
+		#shows2 {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		#shows2 li {
+			width: 161px;
+			height: 200px;
+			display: inline-block;
+		}
+		#shows2 li h3 {
+			border-radius: 0px 0px 5px 5px;
+			margin: 0;
+			text-align: center;	
+			height: 15%;
+		}
+		#mejibo2 { background-color: #CD20BE; }
+		#santa-rocksalia2 { background-color: #F9A433; }
+		#titulares-sport2 { background-color: #78C82C; font-size: 1em; }
+		#sonico-jardin2 { background-color: #389BC9; font-size: 0.8em; }
+		#sonando-diario2 { background-color: #BC3017; }
+	</style>
+	<style type="text/css">
+		#news-container { float: left; width: 57%;}
+	</style>
+	<style type="text/css">
+		form {
+			width: 100%;
+		}
+		#search input[type="text"] {
+			border-radius: 0.5ex 0 0 0.5ex;
+			border: 0;
+			margin: 0;
+			-moz-box-shadow: inset -5px -5px 5px 5px #aaa;
+			-webkit-box-shadow: inset -5px -5px 5px 5px #aaa;
+			box-shadow: inset 0.5ex 0.5ex 0.25ex 0ex #aaa;
+			float: left;
+			padding: 10px;
+		}
+		#search input[type="submit"] { 
+			border-radius: 0 0.5ex 0.5ex 0;
+			background-color: #AD1E1E;
+			color: white;
+			border: 0;
+			float: left;
+			padding: 10px;
+		}
+		#ads {
+			background: #f96d37; /* Old browsers */
+			background: -moz-linear-gradient(top,  #f96d37 0%, #c64918 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f96d37), color-stop(100%,#c64918)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #f96d37 0%,#c64918 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #f96d37 0%,#c64918 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #f96d37 0%,#c64918 100%); /* IE10+ */
+			background: linear-gradient(top,  #f96d37 0%,#c64918 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f96d37', endColorstr='#c64918',GradientType=0 ); /* IE6-9 */
+			width: 100%;
+			color: white;
+			text-decoration: none;
+			font-size: 2em;
+			border-radius: 0.5ex;
+			padding: 5px 10px;
+			margin-top: 20px;
+		}
+		#main aside {
+			padding: 0;
+			float: right;
+			width: 40%;
+		}
+	</style>
+	<style type="text/css">
+		#footer-container footer{
+			color: white;
+			padding: 20px 0;
+			background-color: #D17171;
+			border-top: 20px solid #AD1E1E;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="fb-root"></div>
+	<script>
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<header class="wrapper clearfix">
+		<div id="logo-container">
+			<img id="logo" src="logo.png" />
+		</div>
+		<div id="header-banner">
+			<nav>
+				<ul>
+					<li><a href="#">Inicio</a></li>
+					<li><a href="#">Noticias</a></li>
+					<li><a href="#">Derechos Humanos</a></li>
+					<li><a href="#">Medio Ambiente</a></li>
+					<li><a href="#">Migraci&oacute;n</a></li>
+					<li><a href="#">Pol&iacute;tica</a></li>
+					<li><a href="#">Elecciones 2012</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div id="main-container">
+		<div id="main" class="wrapper clearfix">
+			<div id="news-container">
+				<ol id="news">
+					<li id="news1">
+						<article>
+							<header>
+								<h2><a href="/news-1">Titulo noticia en Santa Rosal&iacute;a 1</a></h2>
+							</header>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dui turpis, varius facilisis augue.
+							</p>
+							<a class="button" href="/news-1">Ver mas...</a>
+						</article>
+					</li>
+					<li id="news2">
+						<article>
+							<header>
+								<h2><a href="/news-2">Titulo noticia en Santa Rosal&iacute;a 2</a></h2>
+							</header>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dui turpis, varius facilisis augue.
+							</p>
+							<a class="button" href="/news-2">Ver mas...</a>
+						</article>
+					</li>
+					<li id="news3">
+						<article>
+							<header>
+								<h2><a href="/news-3">Titulo noticia en Santa Rosal&iacute;a 3</a></h2>
+							</header>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dui turpis, varius facilisis augue.
+							</p>
+							<a class="button" href="/news-3">Ver mas...</a>
+						</article>
+					</li>
+					<li id="news4">
+						<article>
+							<header>
+								<h2><a href="/news-4">Titulo noticia en Santa Rosal&iacute;a 4</a></h2>
+							</header>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dui turpis, varius facilisis augue.
+							</p>
+							<a class="button" href="/news-4">Ver mas...</a>
+						</article>
+					</li>
+					<li id="news5">
+						<article>
+							<header>
+								<h2><a href="/news-5">Titulo noticia en Santa Rosal&iacute;a 5</a></h2>
+							</header>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed dui turpis, varius facilisis augue.
+							</p>
+							<a class="button" href="/news-5">Ver mas...</a>
+						</article>
+					</li>
+				</ol>
+				<div id="slider">
+					<a href="#news1">1</a>
+					<a href="#news2">2</a>
+					<a href="#news3">3</a>
+					<a href="#news4">4</a>
+					<a href="#news5">5</a>
+				</div>
+			</div>
+			<aside>
+				<form id="search">
+					<input type="text" value="Buscar..." />
+					<input type="submit" value="Buscar" />
+				</form>
+				<iframe src="http://www.ustream.tv/embed/10101649" height="210"></iframe>
+				<!-- Facebook -->
+				<!--
+					js less
+					<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FRadioKashana%2F286459204744614&amp;width=292&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:258px;" allowTransparency="true"></iframe>
+				-->
+				<div class="fb-like-box" data-href="https://www.facebook.com/pages/RadioKashana/286459204744614" data-width="292" data-show-faces="true" data-stream="true" data-header="true"></div>
+				<!-- Twitter -->
+				<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+				<script>
+				new TWTR.Widget({
+				  version: 2,
+				  type: 'profile',
+				  rpp: 4,
+				  interval: 30000,
+				  width: 'auto',
+				  height: 300,
+				  theme: {
+				    shell: {
+				      background: '#ad1e1e',
+				      color: '#ffffff'
+				    },
+				    tweets: {
+				      background: '#ffffff',
+				      color: '#4c4848',
+				      links: '#ad1e1e'
+				    }
+				  },
+				  features: {
+				    scrollbar: false,
+				    loop: false,
+				    live: false,
+				    behavior: 'all'
+				  }
+				}).render().setUser('yorchy').start();
+				</script>
+				<a id="ads" href="/ads">Public&iacute;tate con nosotros.</a>
+			</aside>
+			<article>
+				<h2>Escucha los programas de RadioKashana.org</h2>
+				<!-- <dl id="shows">
+					<dt id="mejibo">Mejibo</dt>
+					<dd>Radar pol&iacute;tico, nacional e internacional. Lunes a Viernes de 9:00 a 16:30.</dd>
+					<dt id="santa-rocksalia">Santa Rocksal&iacute;a</dt>
+					<dd>Un espacio para el rock en tu idioma. Lunes a Viernes de 16:30 a 17:30.</dd>
+					<dt id="titulares-sport">Los Titulares Sport</dt>
+					<dd>El mundo del deporte, incluyendo ligas locales. Lunes de 19:00 a 20:00.</dd>
+					<dt id="sonico-jardin">Ruido S&oacute;nico del Jard&iacute;n</dt>
+					<dd>Un espacio diferente musical. Domingo de 13:00 a 15:00.</dd>
+					<dt id="sonando-diario">Sonando Diario</dt>
+					<dd>Programaci&oacute;n Musical</dd>
+				<dl> -->
+				<ul id="shows2">
+					<li>
+						<img src="mejibo.png" />
+						<h3 id="mejibo2">Mejibo</h3>
+					</li>
+					<li>
+						<img src="santa-rocksalia.png" />
+						<h3 id="santa-rocksalia2">Santa Rocksal&iacute;a</h3>
+					</li>
+					<li>
+						<img src="titulares-sport.png" />
+						<h3 id="titulares-sport2">Los Titulares Sport</h3>
+					</li>
+					<li>
+						<img src="sonico-jardin.png" />
+						<h3 id="sonico-jardin2">Ruido S&oacute;nico del Jard&iacute;n</h3>
+					</li>
+					<li>
+						<img src="sonando-diario.png" />
+						<h3 id="sonando-diario2">Sonando Diario</h3>
+					</li>
+				</ul>
+			</article>
+		</div>
+	</div>
+	<div id="footer-container">
+		<footer class="wrapper">
+			<h3>RadioKashana.org. Todos los derechos reservados.</h3>
+		</footer>
+	</div>
+</body>
